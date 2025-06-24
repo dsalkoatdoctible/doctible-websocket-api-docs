@@ -1,0 +1,399 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Doctible Websocket API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-f2832b10.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-024da600.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="revehr" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" style="margin: 20px" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-67a5770f.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#include-doctible-websocket-api-client" class="toc-h1 toc-link" data-title="Include Doctible Websocket API client">Include Doctible Websocket API client</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#establish-connection" class="toc-h2 toc-link" data-title="Establish connection">Establish connection</a>
+                  </li>
+                  <li>
+                    <a href="#subscribe-for-updates" class="toc-h2 toc-link" data-title="Subscribe for updates">Subscribe for updates</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='developer@doctible.com'>Contact us</a></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>The purpose of this API is to provide a simple way to stream UI events related to Patient Communicator product.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, please generate JWT token, this could be the same token you use for the SSO but with different <code>jti</code> claim to avoid collision:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp"><code>     <span class="n">IJwtAlgorithm</span> <span class="n">algorithm</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HMACSHA256Algorithm</span><span class="p">();</span>
+    <span class="c1">// learn more about JWT at https://jwt.io/</span>
+    <span class="kt">string</span> <span class="n">jwt</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">JwtBuilder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nf">WithSecret</span><span class="p">(</span><span class="n">ssoSecret</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">WithAlgorithm</span><span class="p">(</span><span class="n">algorithm</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">AddClaim</span><span class="p">(</span><span class="s">"employeeId"</span><span class="p">,</span> <span class="n">employeeId</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">AddClaim</span><span class="p">(</span><span class="s">"locationId"</span><span class="p">,</span> <span class="n">locationId</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">AddClaim</span><span class="p">(</span><span class="s">"role"</span><span class="p">,</span> <span class="n">role</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">AddClaim</span><span class="p">(</span><span class="s">"jti"</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span> <span class="c1">// unique identifier for the token</span>
+    <span class="p">.</span><span class="nf">AddClaim</span><span class="p">(</span><span class="s">"iat"</span><span class="p">,</span> <span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="nf">ToUnixTimeSeconds</span><span class="p">())</span> <span class="c1">// issued at timestamp</span>
+    <span class="p">.</span><span class="nf">AddClaim</span><span class="p">(</span><span class="s">"exp"</span><span class="p">,</span> <span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="nf">ToUnixTimeSeconds</span><span class="p">()</span> <span class="p">+</span> <span class="n">ExpiresIn</span><span class="p">)</span> <span class="c1">// token expiration timestamp</span>
+    <span class="p">.</span><span class="nf">Encode</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace ssoSecret with correct secret for location you are trying to connect to.</p>
+</blockquote>
+
+<p>You will pass this JWT token in query string as <code>jwt</code> parameter. Also, you need to provide your partner code in query string as <code>partner</code> parameter.</p>
+<h1 id='include-doctible-websocket-api-client'>Include Doctible Websocket API client</h1><div class="highlight"><pre class="highlight html tab-html"><code>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://doctible-cdn.s3-us-west-2.amazonaws.com/dist/doctible_client.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div><h2 id='establish-connection'>Establish connection</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code>    <span class="c1">// staging</span>
+    <span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoctibleWebsocketClient</span><span class="p">(</span><span class="dl">'</span><span class="s1">ws://ws.fairbill.me/cable?jwt=&lt;JWT&gt;&amp;partner=&lt;PARTNER&gt;</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>    <span class="c1">// production</span>
+    <span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoctibleWebsocketClient</span><span class="p">(</span><span class="dl">'</span><span class="s1">ws://ws.doctible.com/cable?jwt=&lt;JWT&gt;&amp;partner=&lt;PARTNER&gt;</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><h2 id='subscribe-for-updates'>Subscribe for updates</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code>    <span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+        <span class="nx">connected</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Connected to PartnerChannel</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">received</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Received data:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span> <span class="c1">// { type: "unread_count", count: 1 }</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+</code></pre></div>
+<p>Currently, only <code>unread_count</code> event is supported. This event will be triggered when unread count changes or after initial connection.
+The purpose of this event is to notify you about unread messages count in the Patient Communicator product.</p>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+{"type":"disconnect","reason":"unauthorized","reconnect":false} - invalid or reused JWT token
+</aside>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
